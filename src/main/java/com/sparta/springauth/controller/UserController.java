@@ -37,15 +37,15 @@ public class UserController {
     }
 
     @PostMapping("/user/signup")
-    public String signup(@Valid SignupRequestDto requestDto, BindingResult bindingResult) {
-        // Validation 예외처리
-        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-        if(fieldErrors.size() > 0) {
-            for (FieldError fieldError : bindingResult.getFieldErrors()) {
-                log.error(fieldError.getField() + " 필드 : " + fieldError.getDefaultMessage());
-            }
-            return "redirect:/api/user/signup";
-        }
+    public String signup(@Valid SignupRequestDto requestDto){//, BindingResult bindingResult) {
+//        // Validation 예외처리
+//        List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+//        if(fieldErrors.size() > 0) {
+//            for (FieldError fieldError : bindingResult.getFieldErrors()) {
+//                log.error(fieldError.getField() + " 필드 : " + fieldError.getDefaultMessage());
+//            }
+//            return "redirect:/api/user/signup";
+//        }
 
         userService.signup(requestDto);
 
